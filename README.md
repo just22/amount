@@ -28,8 +28,7 @@ require special permissions
 umount(8),
 disklabel(8),
 fsck(8) ...),
-so it should be run through
-doas(1).
+so it should be run as root.
 
 After a successful operation,
 **amount**
@@ -90,7 +89,7 @@ iterations:
 	
 	clear
 	while : ; do
-	        mdir="$(/usr/bin/doas /usr/local/bin/amount)"
+	        mdir="$(/usr/bin/doas amount)"
 	        [ $? -ne 0 ] && keep
 	        clear
 	        [ -d "$mdir" ] && filemanager "$mdir"

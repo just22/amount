@@ -53,8 +53,7 @@ require special permissions
 .Xr umount 8 ,
 .Xr disklabel 8 ,
 .Xr fsck 8 ...),
-so it should be run through
-.Xr doas 1 .
+so it should be run as root.
 .Pp
 After a successful operation,
 .Nm
@@ -102,7 +101,7 @@ keep() {
 
 clear
 while : ; do
-        mdir="$(/usr/bin/doas /usr/local/bin/amount)"
+        mdir="$(/usr/bin/doas amount)"
         [ $? -ne 0 ] && keep
         clear
         [ -d "$mdir" ] && filemanager "$mdir"
