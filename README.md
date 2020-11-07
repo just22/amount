@@ -99,7 +99,7 @@ iterations:
 
 disklabel(8),
 doas(1),
-fsck(8,)
+fsck(8),
 mount(8),
 umount(8)
 
