@@ -8,6 +8,8 @@ AMOUNT(1) - General Commands Manual
 
 **amount**
 \[**-r**&nbsp;*path*]
+\[**-g**&nbsp;*group*]
+\[**-m**&nbsp;*mode*]
 \[**-o**&nbsp;*options*]
 \[**-e**&nbsp;*device&nbsp;...*]
 
@@ -42,6 +44,16 @@ The options are as follows:
 > Set root mount directory to path; path must exist and have the proper
 > permissions (defaults to /vol).
 
+**-g** *group*
+
+> Set group ownership for mount directory.
+
+**-m** *mode*
+
+> Set file mode, as in
+> chmod(1),
+> for mount directory.
+
 **-o** *options*
 
 > Mount options (defaults to rw,nodev,nosuid,noatime).
@@ -49,6 +61,17 @@ The options are as follows:
 **-e** *device ...*
 
 > The listed devices will be ignored.
+
+# CAVEATS
+
+Changing mount directory ownership and file mode are not supported for
+read-only filesystems (e.g., ISO9660 partitions).
+
+**amount**
+emulates arrays by means of positional parameters, so it cannot manage
+more than 9 partitions at a time; this limitation can be overcome using
+the -e option, except when a single device by itself exceeds the
+maximum number of partitions.
 
 # EXAMPLES
 
