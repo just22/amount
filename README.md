@@ -2,7 +2,7 @@ AMOUNT(1) - General Commands Manual
 
 # NAME
 
-**amount** - Minimalist (semi)automatic mounter for OpenBSD
+**amount** - minimalist (semi)automatic mounter for OpenBSD
 
 # SYNOPSIS
 
