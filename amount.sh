@@ -105,7 +105,7 @@ for diskn in $(gsub $(sysctl -n hw.disknames) , \ ); do
 
         unset partf
 
-        disklabel -h "$dev" |&
+        disklabel -h "$dev" 2>/dev/null |&
         while read -p line; do
                 case "$line" in
                 disk:*)
