@@ -175,8 +175,11 @@ case "$action" in
         fi
 
         if ! mount $MOPT /dev/"$devpart" "$mdir"; then
-                rm -r "$mdir"
-                err
+                # Maybe a read-only fs? If not, give up
+                if ! mount $MOPT -r /dev/"$devpart" "$mdir"; then
+                        rm -r "$mdir"
+                        err
+                fi
         fi
         [ -n "$MGROUP" ] && chgrp "$MGROUP" "$mdir"
         [ -n "$MMODE" ]  && chmod "$MMODE"  "$mdir"
